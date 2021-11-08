@@ -188,7 +188,7 @@ namespace MemoryManager {
 			return;
 		}
 		protection = PAGE_READWRITE | PAGE_WRITECOPY | PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY;
-		if ((mbi.AllocationProtect & protection) == 0) {
+		if ((mbi.Protect & protection) == 0) {
 			std::cout << "Memory protection level doesn't allow writing\n";
 			return;
 		}
@@ -202,6 +202,7 @@ namespace MemoryManager {
 			std::cout << "Error ocurred\n";
 			return;
 		}
+
 		std::cout << "Data written successfully\n\nData written to memory:\n";
 		std::cout << static_cast<char*>(address) << '\n';
 	}
